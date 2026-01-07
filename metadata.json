@@ -1,0 +1,8 @@
+{
+  "name": "智语 - 智能在线客服管理系统",
+  "description": "一个面向企业的高端在线客服工作台，集成 Gemini 3 智能助手，支持多渠道接入、实时对话分析、自动摘要和智能回复建议。",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
