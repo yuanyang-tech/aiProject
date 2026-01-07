@@ -31,9 +31,19 @@ export interface Conversation {
   startedAt: Date;
 }
 
+export interface KnowledgeItem {
+  id: string;
+  title: string;
+  content: string;
+  category: string;
+  tags: string[];
+  updatedAt: Date;
+}
+
 export enum DashboardTab {
   INBOX = 'inbox',
   ANALYTICS = 'analytics',
   CUSTOMERS = 'customers',
+  KNOWLEDGE = 'knowledge',
   SETTINGS = 'settings'
 }

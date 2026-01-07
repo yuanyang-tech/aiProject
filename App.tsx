@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar';
 import ChatWindow from './components/ChatWindow';
 import DashboardOverview from './components/DashboardOverview';
 import CustomerList from './components/CustomerList';
+import KnowledgeBase from './components/KnowledgeBase';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<DashboardTab>(DashboardTab.INBOX);
@@ -96,26 +97,7 @@ const App: React.FC = () => {
                       ))}
                     </div>
                   </div>
-                  
-                  <div className="grid grid-cols-1 gap-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-slate-400">上次访问</span>
-                      <span className="text-xs font-medium text-slate-700">2小时前</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-slate-400">会话次数</span>
-                      <span className="text-xs font-medium text-slate-700">12 次</span>
-                    </div>
-                  </div>
                 </div>
-              </div>
-
-              <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-                <h5 className="font-bold text-slate-800 text-sm mb-4">备注</h5>
-                <textarea 
-                  placeholder="点击添加客户备注..."
-                  className="w-full bg-slate-50 border-none rounded-xl p-3 text-xs text-slate-600 focus:ring-1 focus:ring-indigo-500 h-24 resize-none"
-                />
               </div>
             </div>
           </div>
@@ -124,6 +106,8 @@ const App: React.FC = () => {
         return <DashboardOverview />;
       case DashboardTab.CUSTOMERS:
         return <CustomerList />;
+      case DashboardTab.KNOWLEDGE:
+        return <KnowledgeBase />;
       case DashboardTab.SETTINGS:
         return (
           <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm max-w-2xl">
@@ -136,15 +120,6 @@ const App: React.FC = () => {
                 </div>
                 <div className="w-12 h-6 bg-indigo-600 rounded-full relative cursor-pointer shadow-inner">
                   <div className="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
-                </div>
-              </div>
-              <div className="flex items-center justify-between p-4 bg-slate-50 rounded-xl opacity-50">
-                <div>
-                  <h4 className="font-semibold text-slate-800 text-sm">深色模式</h4>
-                  <p className="text-xs text-slate-400">切换 UI 到深色主题风格。</p>
-                </div>
-                <div className="w-12 h-6 bg-slate-300 rounded-full relative cursor-pointer shadow-inner">
-                  <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full"></div>
                 </div>
               </div>
             </div>
@@ -165,6 +140,7 @@ const App: React.FC = () => {
             {activeTab === DashboardTab.INBOX && '收件箱'}
             {activeTab === DashboardTab.ANALYTICS && '数据看板'}
             {activeTab === DashboardTab.CUSTOMERS && '客户关系管理'}
+            {activeTab === DashboardTab.KNOWLEDGE && '知识库管理'}
             {activeTab === DashboardTab.SETTINGS && '偏好设置'}
           </h2>
           <div className="flex items-center gap-4">

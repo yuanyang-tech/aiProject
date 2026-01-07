@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Customer, Conversation } from './types';
+import { Customer, Conversation, KnowledgeItem } from './types';
 
 export const MOCK_CUSTOMERS: Customer[] = [
   {
@@ -22,46 +22,6 @@ export const MOCK_CUSTOMERS: Customer[] = [
     lastSeen: new Date(Date.now() - 3600000),
     location: '上海, 中国',
     tags: ['潜在客户', '咨询中']
-  },
-  {
-    id: 'c3',
-    name: '王大锤',
-    email: 'dachui.wang@example.com',
-    avatar: 'https://i.pravatar.cc/150?u=c3',
-    status: 'offline',
-    lastSeen: new Date(Date.now() - 86400000),
-    location: '广州, 中国',
-    tags: ['投诉', '紧急']
-  },
-  {
-    id: 'c4',
-    name: '陈美琳',
-    email: 'meilin.chen@example.com',
-    avatar: 'https://i.pravatar.cc/150?u=c4',
-    status: 'online',
-    lastSeen: new Date(),
-    location: '深圳, 中国',
-    tags: ['活跃用户', '复购客户']
-  },
-  {
-    id: 'c5',
-    name: '赵铁柱',
-    email: 'tuezhu.zhao@example.com',
-    avatar: 'https://i.pravatar.cc/150?u=c5',
-    status: 'offline',
-    lastSeen: new Date(Date.now() - 172800000),
-    location: '成都, 中国',
-    tags: ['新用户']
-  },
-  {
-    id: 'c6',
-    name: '周小杰',
-    email: 'xiaojie.zhou@example.com',
-    avatar: 'https://i.pravatar.cc/150?u=c6',
-    status: 'away',
-    lastSeen: new Date(Date.now() - 7200000),
-    location: '杭州, 中国',
-    tags: ['自营店客户', '兴趣广泛']
   }
 ];
 
@@ -78,18 +38,32 @@ export const MOCK_CONVERSATIONS: Conversation[] = [
       { id: 'm2', role: 'agent', content: '您好！欢迎咨询。Pro 款机型目前有现货，您具体想了解哪些方面呢？', timestamp: new Date(Date.now() - 1500000), status: 'sent' },
       { id: 'm3', role: 'user', content: '请问这款产品的续航时间是多久？', timestamp: new Date(Date.now() - 1000000), status: 'sent' }
     ]
+  }
+];
+
+export const MOCK_KNOWLEDGE: KnowledgeItem[] = [
+  {
+    id: 'k1',
+    title: '智语 Pro 续航说明',
+    content: '智语 Pro 系列配备了 5000mAh 超大电池。在常规办公模式下可使用 15 小时，视频播放模式可达 20 小时。支持 65W 快充，30 分钟可充电至 60%。',
+    category: '产品参数',
+    tags: ['电池', '续航', 'Pro'],
+    updatedAt: new Date(2024, 2, 15)
   },
   {
-    id: 'conv2',
-    customerId: 'c2',
-    lastMessage: '好的，谢谢你的回复。',
-    unreadCount: 0,
-    priority: 'medium',
-    startedAt: new Date(Date.now() - 5000000),
-    messages: [
-      { id: 'm4', role: 'user', content: '我的订单什么时候发货？', timestamp: new Date(Date.now() - 6000000), status: 'sent' },
-      { id: 'm5', role: 'agent', content: '您的订单预计会在明天下午发出。', timestamp: new Date(Date.now() - 5500000), status: 'sent' },
-      { id: 'm6', role: 'user', content: '好的，谢谢你的回复。', timestamp: new Date(Date.now() - 5000000), status: 'sent' }
-    ]
+    id: 'k2',
+    title: '退换货政策',
+    content: '本商城支持 7 天无理由退货，15 天质量问题换货。退货需保证产品包装完好，不影响二次销售。由于个人原因产生的退货运费需由买家承担。',
+    category: '售后服务',
+    tags: ['退货', '换货', '政策'],
+    updatedAt: new Date(2024, 1, 10)
+  },
+  {
+    id: 'k3',
+    title: '如何设置 AI 自动摘要',
+    content: '进入设置中心 -> 会话设置 -> 开启“AI 自动摘要”开关。开启后，系统会在会话结束后 10 秒内自动生成内容提要。',
+    category: '操作指南',
+    tags: ['设置', 'AI', '摘要'],
+    updatedAt: new Date(2024, 3, 5)
   }
 ];
